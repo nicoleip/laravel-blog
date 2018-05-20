@@ -4,7 +4,7 @@
 
 <div class="panel panel-default">
 <div class="panel-heading">
-    Trashed Posts
+    Trashed Posts   
 </div>
 <div class="panel-body">
 <table class="table table-hover">

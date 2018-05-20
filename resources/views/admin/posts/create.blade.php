@@ -40,6 +40,14 @@ Create a new post
             </select>
         </div>
         <div class="form-group">
+        <label for="category">Select tags</label>
+            @foreach($tags as $tag)
+            <div class="checkbox">
+            <label for="tag"><input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->tag }}</label>
+            </div>
+            @endforeach
+        </div>
+        <div class="form-group">
             <label for="content">Content</label>
             <textarea name="content" id="content" cols="5" rows="5" class="form-control"></textarea>
         </div>
