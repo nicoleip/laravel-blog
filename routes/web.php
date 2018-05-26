@@ -15,14 +15,27 @@ Route::get('/test', function () {
     return App\Profile::find(1)->user;
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [
+    'uses' => 'FrontEndController@index',
+    'as' => 'home'
+]);
 
 Auth::routes();
 
+Route::get('/post/{slug}' , [
+    'uses' => 'FrontEndController@singlePost',
+    'as'   => 'post.single'
+]);    
 
+Route::get('/category/{id}' , [
+    'uses' => 'FrontEndController@category',
+    'as'   => 'category.single'
+]);   
 
+Route::get('/tag/{id}' , [
+    'uses' => 'FrontEndController@tag',
+    'as'   => 'tag.single'
+]);   
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
@@ -31,8 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/post/create' , [
         'uses' => 'PostsController@create',
         'as'   => 'posts.create'
-    ]);
-    
+    ]);   
     
     Route::post('/post/store', [
         'uses' => 'PostsController@store',
