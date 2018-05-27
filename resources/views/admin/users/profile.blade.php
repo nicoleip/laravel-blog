@@ -40,7 +40,7 @@ Edit your profile
 
         <div class="form-group">
             <label for="about">About you</label>
-            <textarea name="about" id="about" cols="6" rows="6" value="{{ $user->profile->about }}" class="form-control"></textarea>
+            <textarea name="about" id="about" cols="6" rows="6" class="form-control">{{ $user->profile->about }}</textarea>
         </div>
 
         <div class="form-group">

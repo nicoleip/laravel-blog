@@ -75,7 +75,7 @@ class ProfilesController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'facebook' => 'required|url',
-            'youtube' => 'required|url'
+            'youtube' => 'required|url',
         ]);
 
         $user = Auth::user();
@@ -96,6 +96,7 @@ class ProfilesController extends Controller
         $user->email = $request->email;
         $user->profile->facebook = $request->facebook;
         $user->profile->youtube = $request->youtube;
+        $user->profile->about = $request->about;
 
        
         $user->profile->save();
